@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
+use App\Http\Models\Image as Image;
 use Illuminate\Http\Request;
 
 class GalleryController extends Controller
@@ -34,7 +35,19 @@ class GalleryController extends Controller
       // }else{
       //   echo "string";
       // }
-     print_r($_FILES);
+      $file = $request->file('file');
+      $path = 'images/uploads';
+      $filename = $file->getClientOriginalName();
+      $getsize = $file->getClientSize();
+      $file->move('images/uploads',$file->getClientOriginalName());
+      $image = new Image;
+      $image->image_name = $filename;
+      $image->image_size = $getsize;
+      $image->part = 'images/uploads'.$filename;
+      $image->user_id = Auth::user()->id;
+      // print_r($getsize); die();
+      ($getsize<1000000)?$image->save():die();
+
     		// $input = Input::all();
     		// $rules = array(
     		//     'file' => 'image|max:3000',

@@ -16,7 +16,7 @@
                       </div>
                     </form> -->
 
-                    <form action="/fileupload" class="dropzone">
+                     <form action="/fileupload" class="dropzone">
                       @csrf
 
                       <div class="fallback">
@@ -24,6 +24,10 @@
                       </div>
 
                     </form>
+                    <!-- <form id="my-dropzone" action="/fileupload" class="dropzone">
+@csrf
+                    </form> -->
+
 
                 </div>
             </div>
