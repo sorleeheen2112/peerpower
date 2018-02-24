@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="{{ asset('css/dropzone/dropzone.css') }}" rel="stylesheet">
@@ -77,7 +78,13 @@
             @yield('content')
         </main>
     </div>
+    <script>
 
+    var user = {
+        user_id:'{{Auth::user()->id}}',
+        user_name:'{{Auth::user()->name}}',
+    };
+    </script>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/dropzone/dropzone.js') }}"></script>

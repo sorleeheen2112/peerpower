@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div id="app" class="container">
+<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -19,9 +19,14 @@
                      <form action="/fileupload" class="dropzone">
                       @csrf
 
+                      <div class="icondropzone">
+                        <i class="fas fa-cloud-upload-alt fa-5x"></i>
+                      </div>
                       <div class="fallback">
                         <input name="file" type="file" accept="image/jpeg, image/png"  multiple />
                       </div>
+
+
 
                     </form>
                     <!-- <form id="my-dropzone" action="/fileupload" class="dropzone">

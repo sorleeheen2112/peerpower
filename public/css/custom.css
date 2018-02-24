@@ -1,0 +1,11 @@
+.icondropzone {
+    text-align: center;
+    opacity: 0.8;
+}
+form.dropzone.dz-clickable {
+    border: 3px dashed;
+    opacity: 0.8;
+}
+.dz-default.dz-message {
+    opacity: 0.8;
+}
