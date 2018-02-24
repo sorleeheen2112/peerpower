@@ -16,7 +16,7 @@
                       </div>
                     </form> -->
 
-                     <form action="/fileupload" class="dropzone">
+                     <!-- <form action="/fileupload" class="dropzone" id="my-dropzone">
                       @csrf
 
                       <div class="icondropzone">
@@ -28,10 +28,33 @@
 
 
 
-                    </form>
-                    <!-- <form id="my-dropzone" action="/fileupload" class="dropzone">
-@csrf
                     </form> -->
+                    <form id="my-dropzone" action="/fileupload" class="dropzone">
+@csrf
+                      <div class="icondropzone">
+                        <i class="fas fa-cloud-upload-alt fa-5x"></i>
+                      </div>
+                      </form>
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Image</th>
+                          <th>Name</th>
+                          <th>Size</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody v-for="item in images" >
+                        <tr>
+                          <td>@{{item.image_name}}</td>
+                          <td>@{{item.image_name}}</td>
+                          <td>@{{item.image_size}}</td>
+                          <td>@{{item.id}}</td>
+
+                        </tr>
+                      </tbody>
+                    </table>
+
 
 
                 </div>

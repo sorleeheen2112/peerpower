@@ -12,9 +12,13 @@ var app = new Vue({
     c_sum:'',
     sum:'',
   },
+  computed: {
+    now: function () {
+      return Date.now()
+    }
+  },
   mounted(){
     axios.get('/getgallery/'+this.user_id).then((response) => {
-      console.log(response.data);
       this.images = response.data.images;
       this.sum_png = response.data.sum_png;
       this.sum_jpg = response.data.sum_jpg;
@@ -28,22 +32,19 @@ var app = new Vue({
 
     Dropzone.options.myDropzone = {
       maxFilesize:10 ,
+      acceptedFiles: 'image/jpeg, image/png',
+      addRemoveLinks: true,
       init: function() {
-        // this.on("uploadprogress", function(file, progress) {
-        //   let payload = file;
-        //   axios.post('/fileupload', payload)
-        //    .then(function(response){
-        //    console.log('saved successfully')
-        //  });
-        // //   console.log("File progress", progress);
-        // });
-        this.on("error", function(file, response) {
-    // do stuff here.
-            console.log(response);
+        var self = this;
+        self.options.addRemoveLinks = true;
 
-      });
       }
     }
+  },
+  methods: {
+    addRemoveLinks: function(){
+      console.log('test');
+    },
   }
 
 });

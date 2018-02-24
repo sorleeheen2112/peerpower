@@ -47,7 +47,7 @@ class GalleryController extends Controller
       $image->image_size = $getsize;
       $image->part = 'images/uploads/'.$filename;
       $image->user_id = Auth::user()->id;
-      $image->type = $file->getClientOriginalExtension();
+      $image->type = 'ssss';
       // print_r($getsize); die();
       ($getsize<1000000)?$image->save():die();
 
@@ -64,6 +64,7 @@ class GalleryController extends Controller
     		// }
 
     	}
+   
     public function getgallery($id){
       $c_png = 0;
       $c_jpg = 0;
