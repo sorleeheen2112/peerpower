@@ -19,3 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::get('/gallery', 'GalleryController@index');
+Route::match(['get', 'post'],'fileupload', 'GalleryController@post_upload');
