@@ -37,7 +37,14 @@ var app = new Vue({
       init: function() {
         var self = this;
         self.options.addRemoveLinks = true;
-
+        this.on("complete", function (file) {
+          console.log(this.user_id);
+          axios.get('/getgallery/'+this.user_id).then((response) => {
+              this.images = response.data.images;
+          }).catch((error)=> {
+            console.log(error);
+          });
+        });
       }
     }
   },
